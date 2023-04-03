@@ -17,7 +17,7 @@ library("amap")
 
 #### Read the HTseq counts files 
 
-setwd("/export/home1/users/mpb/amohamed/Mounted_dir/Project_mpb_pourlemomentnon/barneche/Ouardia/chip_seq_data/det1_project/chip_seq_diff_analysis/matrix_deseq2")
+setwd("/chip_seq_diff_analysis/matrix_deseq2")
 
 rawCountTable <- read.table("gene_count_matrix.bed")
 
@@ -271,11 +271,9 @@ summary(ordered_res5)
 ##########################Output tables with Wald test p-values##############################
 #############################################################################################
 
-write.table(as.data.frame(ordered_res1), col.names=NA, row.names = TRUE, sep= "\t", file="results_DE_WT_D_WT_L.tsv")
-write.table(as.data.frame(ordered_res2), col.names=NA, row.names = TRUE, sep= "\t", file="results_DE_DET_D_DET_L.tsv")
+
 write.table(as.data.frame(ordered_res3), sep= "\t", col.names=NA, row.names = TRUE, file="results_DE_DET_D_WT_D.tsv")
-write.table(as.data.frame(ordered_res4), sep= "\t", col.names=NA, row.names = TRUE, file="results_DE_DET_D_WT_L.tsv")
-write.table(as.data.frame(ordered_res5), sep= "\t", col.names=NA, row.names = TRUE, file="results_DE_DET_L_WT_L.tsv")
+
 
 
 
@@ -285,11 +283,6 @@ write.table(as.data.frame(ordered_res5), sep= "\t", col.names=NA, row.names = TR
 #########################################################################################################################
 
 DESeq2::plotMA(res1, alpha = 0.01, ylim = c(-4, 4), main="MA plot WT Light : WT Dark", ylab= "log fold change WT Light : WT Dark")
-DESeq2::plotMA(res2, alpha = 0.01, ylim = c(-4, 4), main="MA plot det1-1 Dark : det1-1 Light", ylab= "log fold change det1-1 Dark : det1-1 Light")
-DESeq2::plotMA(res3, alpha = 0.01, ylim = c(-8, 6), main="MA plot det1-1 Dark : WT Dark", ylab= "log fold change det1-1 Dark : WT Dark")
-DESeq2::plotMA(res4, alpha = 0.01, ylim = c(-8, 6), main="MA plot det1-1 Dark : WT Light", ylab= "log fold change det1-1 Dark : WT Light")
-DESeq2::plotMA(res5, alpha = 0.01, ylim = c(-8, 6), main="MA plot det1-1 light : WT Light", ylab= "log fold change det1-1 light : WT Light")
-
 
 
 
