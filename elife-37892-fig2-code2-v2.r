@@ -18,7 +18,7 @@ library("amap")
 
 #### Read the HTseq counts files 
 
-basedir <- "/export/home1/users/mpb/amohamed/Mounted_dir/Project_mpb_pourlemomentnon/barneche/Ouardia/chip_seq_data/det1_project/rna_seq_data/htseq_count_files"
+basedir <- "/rna_seq_data/htseq_count_files"
 setwd(basedir)
 cntdir <- paste(basedir, "dark", sep="/")
 pat <- ".tsv"
@@ -200,10 +200,6 @@ ordered_res5 <- res5[order(res5$pvalue),]
 #############################################################################################
 
 write.table(as.data.frame(ordered_res1), col.names=NA, row.names = TRUE, sep= "\t", file="res_DE_rna_seq_det_d_det_l.tsv")
-write.table(as.data.frame(ordered_res2), col.names=NA, row.names = TRUE, sep= "\t", file="res_DE_rna_seq_wt_d_wt_l.tsv")
-write.table(as.data.frame(ordered_res3), col.names=NA, row.names = TRUE, sep= "\t", file="res_DE_rna_seq_det_d_wt_d.tsv")
-write.table(as.data.frame(ordered_res4), col.names=NA, row.names = TRUE, sep= "\t", file="res_DE_rna_seq_det_d_wt_l.tsv")
-write.table(as.data.frame(ordered_res5), col.names=NA, row.names = TRUE, sep= "\t", file="res_DE_rna_seq_det_l_wt_l.tsv")
 
 
 #########################################################################################################################
@@ -211,10 +207,6 @@ write.table(as.data.frame(ordered_res5), col.names=NA, row.names = TRUE, sep= "\
 #########################################################################################################################
 
 DESeq2::plotMA(res1, alpha = 0.01, ylim = c(-14, 14), main="MA plot det1-1 Dark:det1-1 Light", ylab= "log fold change det1-1 Dark:det1-1 Light")
-DESeq2::plotMA(res2, alpha = 0.01, ylim = c(-14, 14), main="MA plot WT Dark:WT Light", ylab= "log fold change WT Dark:WT Light")
-DESeq2::plotMA(res3, alpha = 0.01, ylim = c(-14, 14), main="MA plot det1-1 Dark:WT Dark", ylab= "log fold change det1-1 Dark:WT Dark")
-DESeq2::plotMA(res4, alpha = 0.01, ylim = c(-14, 14), main="MA plot det1-1 Dark:WT Light", ylab= "log fold change det1-1 Dark:WT Light")
-DESeq2::plotMA(res5, alpha = 0.01, ylim = c(-14, 14), main="MA plot det1-1 Light:WT Light", ylab= "log fold change det1-1 Light:WT Light")
 
 
 
